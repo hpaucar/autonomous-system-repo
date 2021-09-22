@@ -1,0 +1,65 @@
+(define (domain elevators)
+  (:requirements :strips :typing :adl :equality)    
+  
+  (:types
+      floor1 floor2 - Floor
+      elevator - Elevator
+    ;  n1 n2 - Numbers
+      p - Passenger
+  )
+  
+  (:predicates 
+    (on ?floor ?elevator) ;;Starting position of elevator
+    (above ?floor1 ?floor2) ;;Arrangement of the floors (floor 2 above floor 1)
+
+    (services ?elevator ?floor) ;;The floors that each elevator services
+
+   ; (capacity ?elevator ?n);;The maximum fcapacity of each elevator
+   ; (succ ?n1 ?n2) ;;Number of people boarding elevator
+   ; (pred ?n2 ?n1) ;;Number of people departing elevator
+
+;;The passenger states
+    (at ?p ?floor)  ;;The predicate that specify the person ?p is waiting at floor ?floor. 
+                    ;;The passenger is waiting, if is neither boarded nor served
+    (boarded ?p ?elevator) ;;is true if passenger ?p has boarded the elevator and false otherwise
+    (served ?p ?floor) ;;is true if passenger ?p has arrived at destination floor and false otherwise
+)
+
+(:action up
+  :parameters (?floor1 ?floor2 ?elevator)
+  :precondition (and 
+      (on ?floor1 ?elevator) 
+      (above ?floor1 ?floor2))
+  :effect (and 
+      (on ?floor2 ?elevator) 
+      (not (on ?floor1 ?elevator))))
+
+(:action down
+  :parameters (?floor2 ?floor1 ?elevator)
+  :precondition (and 
+      (on ?floor2 ?elevator) 
+      (above ?floor1 ?floor2))
+  :effect (and 
+      (on ?floor1 ?elevator) 
+      (not (on ?floor2 ?elevator))))
+
+(:action enter
+    :parameters (?p ?floor ?elevator)
+    :precondition (and 
+        (on ?floor ?elevator) 
+        (at ?p ?floor))
+    :effect (and 
+        (not (at ?p ?floor)) 
+        (services ?elevator ?p)        
+        (boarded ?p ?floor)))
+
+(:action exit
+    :parameters (?p ?floor ?elevator)
+    :precondition (and 
+        (on ?floor ?elevator) 
+        (services  ?elevator ?p))
+    :effect (and 
+        (at ?p ?floor) 
+        (not (services ?elevator ?p))
+        (served ?p ?floor)))
+)
