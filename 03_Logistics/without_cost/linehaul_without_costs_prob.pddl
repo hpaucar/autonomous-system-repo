@@ -21,8 +21,10 @@
   (:init
     (at ADoubleRef depot)
     (at BDouble depot)
+
     (free_capacity ADoubleRef n40)
     (free_capacity BDouble n34)
+    
     (demand_chilled_goods GV n18)
     (demand_ambient_goods GV n12)
     (demand_chilled_goods E n7)
