@@ -1,27 +1,27 @@
 (define (problem guindaste_problema_v2)
-    (:domain domain_guindaste_v2)
+    (:domain domain_guindaste_v3)
     (:objects
-        pa pb - plataf
+        a b - plataf
         c1 c2 c3 - container
         cam - caminhao
         gui - guindaste
     )
 
     (:init
-        (proximo pb pa)
-        (caminhao-no-plataf cam pb)
+        (proximo b a) (proximo a b) 
+        (caminhao-no-plataf cam b)
 
-        (guindaste_na_plataf gui pa)
+        (guindaste_na_plataf gui a)
         (guindaste_livre)
 
-        (container-no-plataf c1 pa)
-        (container-no-plataf c2 pa)
-        (container-no-plataf c3 pa)
+        (container-no-plataf c1 a)
+        (container-no-plataf c2 a)
+        (container-no-plataf c3 a)
     )
 
     (:goal
-        (and (container-no-plataf c1 pb)
-            (container-no-plataf c2 pb)
-            (container-no-plataf c3 pb))
-    )
+        (and 
+            (container-no-plataf c1 b)
+            (container-no-plataf c2 b)
+            (container-no-plataf c3 b)))
 )

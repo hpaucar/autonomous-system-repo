@@ -1,5 +1,5 @@
 (define (problem problem_name)
-    (:domain domain_name)
+    (:domain domain_ts_v1)
     (:objects
         A B C D E - field
         runner - player

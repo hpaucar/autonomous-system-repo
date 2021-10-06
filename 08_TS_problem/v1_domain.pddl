@@ -1,6 +1,6 @@
 ;Header and description
 
-(define (domain domain_name)
+(define (domain domain_ts_v1)
 
     
     (:requirements :strips :typing :fluents :action-costs)

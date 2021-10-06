@@ -1,7 +1,6 @@
 ; Exercício 1: Guindaste robótico
 ; Primierio vamos definir quais vão ser nossos objetos
 ; Do texto temos: guidance, container, caminhao, plataforma (ponto A)
-; Header and description
 
 (define (domain domain_guindaste_v1)
 
