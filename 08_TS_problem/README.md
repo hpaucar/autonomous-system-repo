@@ -1,1 +1,1 @@
-To compile this example to would should a Solver that working with cost and Timer, the VS code doesnt allow the maximun value.
+To compile this example to would should a Solver that working with cost and Timer, for example *optic-cpl*.
