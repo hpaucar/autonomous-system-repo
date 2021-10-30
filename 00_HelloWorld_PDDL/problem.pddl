@@ -1,7 +1,5 @@
 ; Hello World example problem
-
 (define (problem hello-world)
-
 (:domain hello)
 
 (:objects
@@ -19,5 +17,7 @@
         ; The only goal is to reach a state where we said 'hello'
         (said_hello_to world)
     )
-)
-)
+))
+
+
+

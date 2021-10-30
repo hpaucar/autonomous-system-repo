@@ -47,4 +47,6 @@
 ;; 5.502: (move-up e1 n3 n4)  [2.000]
 ;; 7.503: (move-up e1 n4 n5)  [1.500]
 ;; 9.003: (leave p1 n5 e1)  [2.000]
-    
+
+;; Copy your result in the next site.    
+;; http://editor.planning.domains/pddl-book/elevator    
